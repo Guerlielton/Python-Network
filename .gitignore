@@ -1,0 +1,5 @@
+.env
+settings.py
+bot_telegram.py
+enviar_doc.py
+__pycache__
