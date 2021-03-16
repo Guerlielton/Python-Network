@@ -34,5 +34,3 @@ while opcao != 0:
         vyos_policy()
 
  #cisco #juniper #huawei #networking #python #automationanywhere #devnet
-
-
