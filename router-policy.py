@@ -23,14 +23,19 @@ while opcao != 0:
     print()
     opcao = int(input('Enter the option number: '))
     if (opcao == 1):
+        #Call Module Juniper
         routepolicy()
     elif (opcao == 2):
+        #Call Module Cisco XE
         route_xe()
     elif (opcao == 3):
+        #Call Module Cisco XR
         route_xr()
     elif (opcao == 4):
+        #Call Module Huawei
         huawei_policy()
     elif (opcao == 5):
+        #Call Module VyOs
         vyos_policy()
-
  #cisco #juniper #huawei #networking #python #automationanywhere #devnet
+
