@@ -1,7 +1,3 @@
-import os
-import requests
-import json
-import time
 from cisco_xr import route_xr
 from cisco_xe import route_xe
 from juniper import routepolicy
