@@ -3,3 +3,4 @@ settings.py
 bot_telegram.py
 __pycache__
 send_doc.py
+bot-env
