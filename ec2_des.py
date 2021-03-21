@@ -2,6 +2,7 @@ import boto3
 from botocore.retries.standard import RetryPolicy 
 
 # Require information for start request 
+
 client = boto3.client('ec2',region_name='us-east-1')
 
 def ec2_status():
