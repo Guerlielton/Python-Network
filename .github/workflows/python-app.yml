@@ -1,6 +1,6 @@
 name: Python Network
 on:
-  workflow_dispatcher:
+  workflow_dispatch:
 jobs:
   docker-build:
     runs-on: ubuntu-latest
