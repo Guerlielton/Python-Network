@@ -23,4 +23,4 @@ jobs:
     - name: Build Image docker
       id: build-image
       run: |
-        docker build -t meuapp .
+        docker build -t Python-network .
