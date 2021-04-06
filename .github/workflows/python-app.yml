@@ -1,8 +1,6 @@
 name: Python Network
-
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatcher:
 jobs:
   docker-build:
     runs-on: ubuntu-latest
