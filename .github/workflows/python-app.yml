@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - uses: dopplerhq/cli-action@v1 
+    # - uses: dopplerhq/cli-action@v1 
     # - name: set envs agent github actions
     #   run: |
     #     doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
