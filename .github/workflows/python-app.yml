@@ -16,6 +16,8 @@ jobs:
         python-version: 3.9
     - name: Set Env Code
       run: envsubst <ec2_description.py> ec2_des.py
+    - name: List Envs
+      run: cat ec2_des.py
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
