@@ -11,6 +11,8 @@ jobs:
       run: doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
       env:
          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRD }}
+    - name: Mask vars
+      run: echo "::add-mask::$AWS_ACCESS_KEY" && echo "::add-mask::$AWS_SECRET_KEY"
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
