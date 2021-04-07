@@ -8,11 +8,11 @@ jobs:
     - uses: actions/checkout@v2
     - uses: dopplerhq/cli-action@v1 
     - name: set envs agent github actions
-      run: doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
+      run: |
+        doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
+        echo "::add-mask::$AWS_ACCESS_KEY" &&  "::add-mask::$AWS_SECRET_KEY"
       env:
          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRD }}
-    - name: Mask vars
-      run: echo "::add-mask::$AWS_ACCESS_KEY" && echo "::add-mask::$AWS_SECRET_KEY"
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
