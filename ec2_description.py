@@ -7,7 +7,7 @@ from botocore.retries.standard import RetryPolicy
 # aws_acces_secret = os.getenv("AWS_ACCESS_KEY")
 # aws_acces_secret_key = os.getenv("AWS_SECRET_KEY")
 # Require information for start request 
-client = boto3.client('ec2',region_name='us-east-1',aws_access_key_id='${AWS_ACCESS_KEY}',aws_secret_access_key='${AWS_SECRET_KEY}')
+client = boto3.client('ec2',region_name='us-east-1',aws_access_key_id=${AWS_ACCESS_KEY},aws_secret_access_key=${AWS_SECRET_KEY}')
 
 def ec2_status():
     instances = []
