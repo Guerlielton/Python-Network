@@ -25,5 +25,5 @@ jobs:
       run:
         docker build -t python-network .
     - name: test
-      run: docker run --rm -it --init -e DOPPLER_TOKEN="$DOPPLER_TOKEN" python-network
+      run: doppler run -- python bot_telegram
     
