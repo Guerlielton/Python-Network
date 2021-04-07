@@ -1,6 +1,9 @@
 name: Python Network 
 on:
   workflow_dispatch:
+    inputs:
+      AWS_ACCESS_KEY: 
+        required: true
 jobs:
   docker-build:
     runs-on: ubuntu-18.04
@@ -10,9 +13,9 @@ jobs:
     - name: set envs agent github actions
       run: |
         doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
-        echo "::set-env name=AWS_ACCESS_KEY::red" 
       env:
          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRD }}
+         AWS_ACCESS_KEY: ${{ github.event.inputs.AWS_ACCESS_KEY }}
     - name: Mask Vars
       run: echo "::add-mask::$AWS_ACCESS_KEY"
     - uses: actions/setup-python@v2
