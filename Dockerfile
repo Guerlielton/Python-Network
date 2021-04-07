@@ -12,5 +12,7 @@ RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.dopple
 
 ARG DOPPLER_TOKEN
 
+RUN cat code/ec2_description
+
 CMD ["doppler", "run", "--", "python3", "bot_telegram.py"]
 
