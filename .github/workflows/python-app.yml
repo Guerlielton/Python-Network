@@ -23,7 +23,5 @@ jobs:
     #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: build docker
       run:
-        docker build -t python-network .
-    - name: test
-      run: doppler run -- python bot_telegram
+        docker build --build-arg "DOPPLER_TOKEN=$DOPPLER_TOKEN" -t python-network .
     

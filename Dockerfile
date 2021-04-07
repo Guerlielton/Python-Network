@@ -10,5 +10,7 @@ RUN apk add curl
 
 RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
 
+ARG DOPPLER_TOKEN
+
 CMD ["doppler", "run", "--", "python3", "bot_telegram.py"]
 

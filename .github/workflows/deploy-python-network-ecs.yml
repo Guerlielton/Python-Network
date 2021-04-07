@@ -25,7 +25,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: .dkr.ecr.us-east-1.amazonaws.com/python-network
+        ECR_REPOSITORY: 884255236269.dkr.ecr.us-east-1.amazonaws.com/pythonnetwork
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t python-network .
