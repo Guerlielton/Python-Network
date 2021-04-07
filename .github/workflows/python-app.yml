@@ -15,7 +15,7 @@ jobs:
       with:
         python-version: 3.9
     - name: Set Env Code
-      run: envsubst <ec2_description.py> ec2_des.js
+      run: envsubst <ec2_description.py> ec2_des.py
     - name: Check File
       run: cat ec2_des.py
     - name: Install dependencies
