@@ -23,9 +23,9 @@ jobs:
     #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: set envs agent github actions
       run: envsubst <ec2_description.py> ec2_desc.py
-        env:
-          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+      env:
+         AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+         AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
     - name: list
       run: cat ec2_desc.py
     - name: build docker
