@@ -7,6 +7,8 @@ on:
 jobs:
   docker-build:
     runs-on: ubuntu-18.04
+    env:
+      AWS_ACCESS_KEY: ${{ github.event.inputs.AWS_ACCESS_KEY }}
     steps:
     - uses: actions/checkout@v2
     - uses: dopplerhq/cli-action@v1 
@@ -15,7 +17,6 @@ jobs:
         doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
       env:
          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRD }}
-         AWS_ACCESS_KEY: ${{ github.event.inputs.AWS_ACCESS_KEY }}
     - name: Mask Vars
       run: echo "::add-mask::$AWS_ACCESS_KEY"
     - uses: actions/setup-python@v2
