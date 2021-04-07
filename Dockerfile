@@ -6,7 +6,9 @@ COPY . /code/
 
 RUN python -m pip install --upgrade pip && pip install -r requirements.txt
 
-RUN ls -la
+RUN apk add curl
 
-CMD python3 send_doc.py 
+RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
+
+CMD ["doppler", "run", "--", "python3", "send_doc.py"]
 
