@@ -1,4 +1,4 @@
-name: Python Network
+name: Python Network 
 on:
   workflow_dispatch:
 jobs:
@@ -6,9 +6,19 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - name: List Archives 
-      run: ls -la
-    - name: Build Image docker
-      id: build-image
+    - uses: dopplerhq/cli-action@v1 
+    - name: set envs agent github actions
+        run: doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
+        env:
+           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRD }}
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Set Env Code
+        run: envsubst <ec2_description.py> ec2_des.js
+    - name: Check File
+        run: cat ec2_des.py
+    - name: Install dependencies
       run: |
-        docker build -t python-network .
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
