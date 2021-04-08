@@ -24,8 +24,6 @@ jobs:
     #   run: envsubst <bot_telegram.py> telegram.py
     #   env:
     #     TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-    - name: List
-      run: cat telegram.py
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:

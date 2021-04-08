@@ -12,4 +12,4 @@ ARG DOPPLER_TOKEN
 
 ENV DOPPLER_TOKEN ${DOPPLER_TOKEN}
 
-CMD ["doppler", "run", "--", "python3", "telegram.py"]
+CMD ["doppler", "run", "--", "python3", "bot_telegram.py"]
