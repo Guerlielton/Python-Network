@@ -6,15 +6,15 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - uses: dopplerhq/cli-action@v1 
-    - name: Set envs github actions 
-      run: doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
+    # - uses: dopplerhq/cli-action@v1 
+    # - name: Set envs github actions 
+    #   run: doppler secrets download --no-file --format=docker >> $GITHUB_ENV; 
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ env.ACCESS_KEY }}
-        aws-secret-access-key: ${{ env.SECRET_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
         aws-region: us-east-1
 
     - name: Login to Amazon ECR
