@@ -28,6 +28,6 @@ jobs:
         ECR_REPOSITORY: 884255236269.dkr.ecr.us-east-1.amazonaws.com/pythonnetwork
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker build --build-arg "DOPPLER_TOKEN=$DOPPLER_TOKEN" -t python-network .
+        docker build -t python-network .
         docker tag python-network:latest $ECR_REPOSITORY:latest
         docker push $ECR_REPOSITORY:latest
