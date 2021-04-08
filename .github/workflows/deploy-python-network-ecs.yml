@@ -30,9 +30,9 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: 884255236269.dkr.ecr.us-east-1.amazonaws.com/pythonnetwork
+        ECR_REPOSITORY: 1234566.dkr.ecr.us-east-1.amazonaws.com/pythonnetwork
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker build -t python-network .
+        docker build --build-arg=DOPPLER_TOKEN=${{ secrets.DOPPLER_TOKEN }} -t python-network .
         docker tag python-network:latest $ECR_REPOSITORY:latest
         docker push $ECR_REPOSITORY:latest

@@ -6,5 +6,10 @@ COPY . /code/
 
 RUN python -m pip install --upgrade pip && pip install -r requirements.txt
 
-CMD python3 telegram.py 
+RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
 
+ARG DOPPLER_TOKEN
+
+ENV DOPPLER_TOKEN ${DOPPLER_TOKEN}
+
+CMD ["doppler", "run", "--", "python3", "telegram.py"]
