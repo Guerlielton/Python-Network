@@ -6,11 +6,5 @@ COPY . /code/
 
 RUN python -m pip install --upgrade pip && pip install -r requirements.txt
 
-RUN apk add curl
-
-RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
-
-ARG DOPPLER_TOKEN
-
-CMD ["doppler", "run", "--", "python3", "bot_telegram.py"]
+CMD python3 bot_telegram.py 
 
