@@ -7,10 +7,10 @@ from juniper import routepolicy
 # from enviar_doc import arquivos
 # from huawei import huawei_policy
 # from vyos import vyos_policy
-# token = os.getenv('TELEGRAM_TOKEN')
+token = os.getenv('TELEGRAM_TOKEN')
 class TelegramBot:
     def __init__(self):
-        token = '${TELEGRAM_TOKEN}'
+        # token = {TELEGRAM_TOKEN}
         self.url_base = f'https://api.telegram.org/bot{token}/'
     def Iniciar(self):
         update_id = None

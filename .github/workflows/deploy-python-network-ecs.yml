@@ -20,10 +20,10 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
-    - name: set envs agent github actions
-      run: envsubst <bot_telegram.py> telegram.py
-      env:
-        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+    # - name: set envs agent github actions
+    #   run: envsubst <bot_telegram.py> telegram.py
+    #   env:
+    #     TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
     - name: List
       run: cat telegram.py
     - name: Build, tag, and push image to Amazon ECR
