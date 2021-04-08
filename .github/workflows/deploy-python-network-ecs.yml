@@ -23,7 +23,7 @@ jobs:
     - name: set envs agent github actions
       run: envsubst <bot_telegram.py> telegram.py
       env:
-         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
