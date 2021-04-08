@@ -10,7 +10,7 @@ from juniper import routepolicy
 # token = os.getenv('TELEGRAM_TOKEN')
 class TelegramBot:
     def __init__(self):
-        token = '1601144393:AAFW30Gd19LLqv6ZWs3b8soMSDxFVa4Iyy0'
+        token = '${TELEGRAM_TOKEN}'
         self.url_base = f'https://api.telegram.org/bot{token}/'
     def Iniciar(self):
         update_id = None
