@@ -25,3 +25,4 @@ jobs:
         docker build --build-arg=DOPPLER_TOKEN=${{ secrets.DOPPLER_TOKEN }} -t python-network .
         docker tag python-network:latest $ECR_REPOSITORY:latest
         docker push $ECR_REPOSITORY:latest
+        
