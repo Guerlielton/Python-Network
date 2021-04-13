@@ -4,3 +4,4 @@ __pycache__
 send_doc.py
 bot-env
 .dockerignore
+bot-ci
