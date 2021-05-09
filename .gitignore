@@ -5,3 +5,9 @@ send_doc.py
 bot-env
 .dockerignore
 bot-ci
+.terraform.lock.hcl
+.terraform/
+task_*
+terraform.tfstate
+terraform.tfstate.backup
+var.tfvars
