@@ -11,3 +11,7 @@ Amazon Web Services offers a broad set of global cloud-based products, including
 # Terraform
 
 Terraform is an open source infrastructure to code software tool that provides a consistent CLI workflow to manage hundreds of cloud services. Terraform encodes cloud APIs into declarative configuration files.
+
+# Docker
+
+Docker takes away repetitive, mundane configuration tasks and is used throughout the development lifecycle for fast, easy and portable application development - desktop and cloud. Docker’s comprehensive end to end platform includes UIs, CLIs, APIs and security that are engineered to work together across the entire application delivery lifecycle.
