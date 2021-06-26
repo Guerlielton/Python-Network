@@ -2,9 +2,9 @@ import os
 import requests
 import json
 
-from networking.cisco_xe import route_xe
-from networking.cisco_xr import route_xr
-from networking.juniper import routepolicy
+#from networking.cisco_xe import route_xe
+#from networking.cisco_xr import route_xr
+#from networking.juniper import routepolicy
 # from enviar_doc import arquivos
 # from huawei import huawei_policy
 # from vyos import vyos_policy
