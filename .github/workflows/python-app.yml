@@ -12,15 +12,13 @@ jobs:
         fetch-depth: 0
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
+      with:
+        projectBaseDir: .
+        args: >
+          -Dsonar.projectKey=python-network
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-    - name: SonarQube Scan code
-      uses: sonarsource/sonarqube-scan-action@master
-      with:
-        projectBaseDir: app/src
-        args: >
-          -Dsonar.projectKey=python-network
   docker-build:
     runs-on: ubuntu-18.04
     steps:
