@@ -1,3 +1,4 @@
+[![Quality Gate Status](http://177.75.71.109/api/project_badges/measure?project=python-network&metric=alert_status)]
 # Doppler
 
 The Doppler CLI provides easy access to secrets in every environment from local development to production and a single dashboard makes it easy for teams to centrally manage app configuration for any application, platform, and cloud provider.
