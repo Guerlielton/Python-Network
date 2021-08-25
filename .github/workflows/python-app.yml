@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: codecov/codecov-action@v2
-    - name: "Upload coverage to Codecov"
+#     - name: "Upload coverage to Codecov"
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         fail_ci_if_error: true
