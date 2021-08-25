@@ -5,9 +5,9 @@ jobs:
   codecov:
     runs-on: ubuntu-20.04
     steps:
-    - name: "Upload coverage to Codecov"
     - uses: actions/checkout@master
     - uses: codecov/codecov-action@v2
+    - name: "Upload coverage to Codecov"
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         fail_ci_if_error: true
