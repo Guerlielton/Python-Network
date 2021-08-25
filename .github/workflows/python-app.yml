@@ -2,29 +2,37 @@ name: Bot Telegram Deploy - ECS
 on:
   workflow_dispatch:
 jobs:
-  sonarcloud:
-    # CodeQL runs on ubuntu-latest, windows-latest, and macos-latest
+  codecov:
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
+  # (Other steps go here)
+    - name: "Upload coverage to Codecov"
+      uses: codecov/codecov-action@v1
       with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
-    - name: SonarQube Scan
-      uses: sonarsource/sonarqube-scan-action@master
-      with:
-        projectBaseDir: .
-        args: >
-          -Dsonar.projectKey=python-network
-          -Dsonar.python.coverage.reportPaths=coverage.xml
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-    - name: SonarQube Quality Gate check
-      uses: sonarsource/sonarqube-quality-gate-action@master
-      timeout-minutes: 5
-      env:
-       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        fail_ci_if_error: true
+
+#   sonarcloud:
+#     runs-on: ubuntu-20.04
+#     steps:
+#     - uses: actions/checkout@v2
+#       with:
+#         # Disabling shallow clone is recommended for improving relevancy of reporting
+#         fetch-depth: 0
+#     - name: SonarQube Scan
+#       uses: sonarsource/sonarqube-scan-action@master
+#       with:
+#         projectBaseDir: .
+#         args: >
+#           -Dsonar.projectKey=python-network
+#           -Dsonar.python.coverage.reportPaths=coverage.xml
+#       env:
+#         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+#     - name: SonarQube Quality Gate check
+#       uses: sonarsource/sonarqube-quality-gate-action@master
+#       timeout-minutes: 5
+#       env:
+#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   # docker-build:
   #   runs-on: ubuntu-18.04
   #   steps:
