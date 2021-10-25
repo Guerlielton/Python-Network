@@ -1,4 +1,5 @@
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=Guerlielton_Python-Network)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Guerlielton_Python-Network&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Guerlielton_Python-Network)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Guerlielton_Python-Network&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Guerlielton_Python-Network)
 ![Pipeline Status](https://github.com/Guerlielton/Python-Network/actions/workflows/python-app.yml/badge.svg)
   
 # Doppler
