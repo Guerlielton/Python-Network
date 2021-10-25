@@ -1,3 +1,4 @@
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=Guerlielton_Python-Network)
 ![Pipeline Status](https://github.com/Guerlielton/Python-Network/actions/workflows/python-app.yml/badge.svg)
   
 # Doppler
