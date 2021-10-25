@@ -8,16 +8,16 @@ def vyos_policy():
     for line in file.readlines():
         line = line.rstrip()
         t.append(line)
-    for i in range(len(t)):
-           if 'AS' in t[i]:   
+    for e in range(len(t)):
+           if 'AS' in t[e]:   
                 ipv6 = []
                 ipv4 = []
                 k = 1
-                while ('/' in t[i+k] ):
-                    if ('::' in t[i+k]):
-                        ipv6.append(i+k)
+                while ('/' in t[e+k] ):
+                    if ('::' in t[e+k]):
+                        ipv6.append(e+k)
                     else:
-                        ipv4.append(i+k)
+                        ipv4.append(e+k)
                     k = k + 1
                 for l in range(len(ipv4)):
                     print(f'set policy prefix-list ALLOW-PREFIXES-AS-123 rule {ru} action permit',file=arq)
