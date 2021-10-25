@@ -16,7 +16,7 @@ def route_xr():
                 print('    set local-preference 700',file=arq)
                 print('    set community COSTOMER-ISP additive',file=arq)
                 print('    set community EXPORT-ONLY-ISP2 additive',file=arq)
-                print('    done \n',' ''endif',file=arq)
+                print('    done \n','endif',file=arq)
                 print('------------------------------------------------------------------------------------------------',file=arq)
     print('Cisco IOS-XR')
     print('Have been configured',count,'Route Policy')
