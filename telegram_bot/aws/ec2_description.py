@@ -2,7 +2,6 @@ import os
 import boto3
 from botocore import config
 from botocore.retries.standard import RetryPolicy 
-#from settings import AWS_ACCESS_KEY,AWS_SECRET_KEY 
 aws_acces_secret = os.getenv("AWS_ACCESS_KEY")
 aws_acces_secret_key = os.getenv("AWS_SECRET_KEY")
 
