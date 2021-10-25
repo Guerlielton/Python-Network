@@ -21,17 +21,13 @@ def ecs_status():
         stat = ecs['status']
         capacity = ecs ['capacityProviders']
         runtaskcount = ecs ['runningTasksCount']
-        activeServCount = ecs ['activeServicesCount']
-        # instance_type = ecs ['InstanceType']
-        #privateip = instance['PrivateIpAddress']
-        #subnetid = instance['SubnetId']
-        #vpcid = instance['VpcId']
+        activeservcount = ecs ['activeServicesCount']
         temp_dict = {}
         temp_dict ['namecluster'] = namecluster
         temp_dict ['stat'] = stat
         temp_dict ['capacity'] = capacity
         temp_dict ['runtaskcount'] = runtaskcount
-        temp_dict ['activeServCount'] = activeServCount
+        temp_dict ['activeServCount'] = activeservcount
         
         clus.append(temp_dict)
     return clus
