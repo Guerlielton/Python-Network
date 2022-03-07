@@ -2,7 +2,7 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Guerlielton_Python-Network&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Guerlielton_Python-Network)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Guerlielton_Python-Network&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Guerlielton_Python-Network)
 ![Pipeline Status](https://github.com/Guerlielton/Python-Network/actions/workflows/python-app.yml/badge.svg)
-  
+![Pipeline Status](https://github.com/Guerlielton/Python-Network/actions/workflows/trivy-scan.yml/badge.svg) 
 # Doppler
 
 The Doppler CLI provides easy access to secrets in every environment from local development to production and a single dashboard makes it easy for teams to centrally manage app configuration for any application, platform, and cloud provider.
