@@ -1,7 +1,8 @@
 name: Scan Vulnerabilities Trivy
 on:
-  schedule:
-    - cron: '0 0 * * MON' 
+   workflow_dispatch:
+#   schedule:
+#     - cron: '0 0 * * MON' 
 jobs:
   scan:
     name: Scan Image
@@ -21,3 +22,10 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
+          
+      - name: envia mensagem
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          message: "Send message test"
