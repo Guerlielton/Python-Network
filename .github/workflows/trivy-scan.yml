@@ -1,0 +1,23 @@
+name: Scan Vulnerabilities Trivy
+on:
+  schedule:
+    - cron: '0 0 * * MON' 
+jobs:
+  scan:
+    name: Scan Image
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t python-network .
+      - name: Scan Vulnerabilities Image Docker.
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'python-network'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
