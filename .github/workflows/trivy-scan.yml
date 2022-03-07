@@ -23,9 +23,10 @@ jobs:
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
           
-      - name: envia mensagem
+      - name: Discord message
         uses: appleboy/discord-action@master
         with:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           message: "Send message test"
+          args: The ${{ github.event_name }} event triggered first step.
