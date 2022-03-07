@@ -4,6 +4,8 @@ WORKDIR /code
 
 COPY . /code/
 
+RUN apk --no-cache add curl
+
 RUN python -m pip install --upgrade pip && pip install -r requirements.txt
 
 RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
