@@ -34,4 +34,4 @@ jobs:
         uses: tsickert/discord-webhook@v4.0.0
         with:
           webhook-url: ${{ secrets.WEBHOOK_URL }}
-          content: "Test"
+          content: "The ${{ github.event_name }} event triggered first step."
