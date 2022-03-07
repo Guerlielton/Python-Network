@@ -30,8 +30,8 @@ jobs:
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           message: "Send message test"
           args: The ${{ github.event_name }} event triggered first step.
-      - name: Discord Webhook Action
-        uses: tsickert/discord-webhook@v4.0.0
-        with:
-          webhook-url: ${{ secrets.WEBHOOK_URL }}
-          content: "The ${{ github.event_name }} event triggered first step."
+#       - name: Discord Webhook Action
+#         uses: tsickert/discord-webhook@v4.0.0
+#         with:
+#           webhook-url: ${{ secrets.WEBHOOK_URL }}
+#           content: "The ${{ github.event_name }} event triggered first step."
