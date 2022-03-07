@@ -25,12 +25,3 @@ jobs:
         docker build --build-arg=DOPPLER_TOKEN=${{ secrets.DOPPLER_TOKEN }} -t python-network .
         #docker tag python-network:latest $ECR_REPOSITORY:latest
         #docker push $ECR_REPOSITORY:latest
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
-      with:
-        image-ref: 'python-network'
-        format: 'table'
-        exit-code: '1'
-        ignore-unfixed: true
-        vuln-type: 'os,library'
-        severity: 'CRITICAL,HIGH'
