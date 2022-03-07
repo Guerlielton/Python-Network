@@ -23,10 +23,15 @@ jobs:
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
           
-      - name: Discord message
-        uses: appleboy/discord-action@master
+#       - name: Discord message
+#         uses: appleboy/discord-action@master
+#         with:
+#           webhook_id: ${{ secrets.WEBHOOK_ID }}
+#           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+#           message: "Send message test"
+#           args: The ${{ github.event_name }} event triggered first step.
+      - name: Discord Webhook Action
+        uses: tsickert/discord-webhook@v4.0.0
         with:
-          webhook_id: ${{ secrets.WEBHOOK_ID }}
-          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-          message: "Send message test"
-          args: The ${{ github.event_name }} event triggered first step.
+          webhook-url: ${{ secrets.WEBHOOK_URL }}
+          content: "Test"
