@@ -12,6 +12,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build an image from Dockerfile
         run: |
+          date
           docker build -t python-network .
       - name: Scan Vulnerabilities Image Docker.
         uses: aquasecurity/trivy-action@master
@@ -29,9 +30,4 @@ jobs:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           message: "Send message test"
-#           args: The ${{ github.event_name }} event triggered first step.
-#       - name: Discord Webhook Action
-#         uses: tsickert/discord-webhook@v4.0.0
-#         with:
-#           webhook-url: ${{ secrets.WEBHOOK_URL }}
-#           content: "The ${{ github.event_name }} event triggered first step."
+
