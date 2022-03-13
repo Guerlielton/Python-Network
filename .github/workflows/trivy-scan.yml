@@ -1,8 +1,7 @@
 name: Scan Vulnerabilities Trivy
 on:
-  workflow_dispatch:
-#   schedule:
-#     - cron: '15 17 * * MON'
+  schedule:
+    - cron: '00 00 * * MON'
     
 jobs:
   scan:
