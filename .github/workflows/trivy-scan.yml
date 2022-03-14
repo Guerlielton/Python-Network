@@ -1,7 +1,8 @@
 name: Scan Vulnerabilities Trivy
 on:
-  schedule:
-    - cron: '00 00 * * MON'
+  workflow_dispatch:
+#   schedule:
+#     - cron: '00 00 * * MON'
     
 jobs:
   scan:
@@ -23,5 +24,18 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
-
+      - name: Send Message Success
+        if: success ()
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          message: "Docker image Ok!, not found vulnerabilities"
+      - name: Send Message Failure
+        if: failure()
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          message: "Docker image Ok!, not found vulnerabilities"
 
