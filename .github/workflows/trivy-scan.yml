@@ -25,7 +25,7 @@ jobs:
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
       - name: Send Message Success
-        if: success ()
+        if: success()
         uses: appleboy/discord-action@master
         with:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
