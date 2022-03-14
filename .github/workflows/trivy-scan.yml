@@ -37,5 +37,5 @@ jobs:
         with:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-          message: "Docker image Ok!, not found vulnerabilities"
+          message: "Vulnerabilities found in Docker image"
 
