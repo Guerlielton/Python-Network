@@ -78,6 +78,7 @@ jobs:
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           message: "Vulnerabilities found in Docker image"
       - name: Delete Artifact
+        if: success() || failure()
         uses: geekyeggo/delete-artifact@v1
         with:
            name: python-network
