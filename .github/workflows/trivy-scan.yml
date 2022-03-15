@@ -12,6 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build an image from Dockerfile
+        id: build-docker
         run: |
           date
           docker build -t python-network .
@@ -25,7 +26,7 @@ jobs:
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
       - name: Send Message Success
-        if: success()
+        if: steps.build.outcome == 'success'
         uses: appleboy/discord-action@master
         with:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
