@@ -5,8 +5,8 @@ on:
 #     - cron: '00 00 * * MON'
     
 jobs:
-  scan:
-    name: Scan Image
+  build_docker:
+    name: Build Docker
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout code
@@ -16,13 +16,18 @@ jobs:
         run: |
           date
           docker build -t python-network .
-      - name: Send Message Success
-        if: steps.build-docker.outcome == 'failure'
+      - name: Send Message Build Failure
+        if: failure()
         uses: appleboy/discord-action@master
         with:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           message: "Build docker image failure"
+  scan:
+    name: Scan Image Trivy
+    runs-on: ubuntu-18.04
+    needs: build_docker
+    steps:
       - name: Scan Vulnerabilities Image Docker.
         uses: aquasecurity/trivy-action@master
         with:
