@@ -16,6 +16,13 @@ jobs:
         run: |
           date
           docker build -t python-network .
+#       - name: Send Message Success
+#         if: steps.build-docker.outcome == 'success'
+#         uses: appleboy/discord-action@master
+#         with:
+#           webhook_id: ${{ secrets.WEBHOOK_ID }}
+#           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+#           message: "Docker image Ok!, not found vulnerabilities"
       - name: Scan Vulnerabilities Image Docker.
         uses: aquasecurity/trivy-action@master
         with:
@@ -26,7 +33,7 @@ jobs:
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
       - name: Send Message Success
-        if: steps.build.outcome == 'success'
+        if: steps.build-docker.outcome == 'success'
         uses: appleboy/discord-action@master
         with:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
