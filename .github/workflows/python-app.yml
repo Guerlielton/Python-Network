@@ -6,6 +6,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
+    - name: Configurando VPN
+      uses: guerlielton-campos/template-action@main
+      with: 
+         ovpn_config_file: ${{ secrets.OVPN_CONFIG_FILE }}
+         ovpn_cert_pass: ${{ secrets.OVPN_CERT_PASS }}
 #     - name: Configure AWS credentials
 #       uses: aws-actions/configure-aws-credentials@v1
 #       with:
@@ -15,13 +20,13 @@ jobs:
 #     - name: Login to Amazon ECR
 #       id: login-ecr
 #       uses: aws-actions/amazon-ecr-login@v1
-    - name: Build, tag, and push image to Amazon ECR
-      id: build-image
+#     - name: Build, tag, and push image to Amazon ECR
+#       id: build-image
 #       env:
 #         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
 #         ECR_REPOSITORY: ${{ secrets.REPO }}.dkr.ecr.us-east-1.amazonaws.com/pythonnetwork
 #         IMAGE_TAG: ${{ github.sha }}
-      run: |
-        docker build --build-arg=DOPPLER_TOKEN=${{ secrets.DOPPLER_TOKEN }} -t python-network .
-        #docker tag python-network:latest $ECR_REPOSITORY:latest
-        #docker push $ECR_REPOSITORY:latest
+#       run: |
+#         docker build --build-arg=DOPPLER_TOKEN=${{ secrets.DOPPLER_TOKEN }} -t python-network .
+#         #docker tag python-network:latest $ECR_REPOSITORY:latest
+#         #docker push $ECR_REPOSITORY:latest
