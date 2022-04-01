@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Config VPN
-        uses: guerlielton-campos/template-action@main
+        uses: Guerlielton/Python-Network@main
         with: 
           ovpn_config_file: ${{ secrets.OVPN_CONFIG_FILE }}
           ovpn_cert_pass: ${{ secrets.OVPN_CERT_PASS }}
+          ovpn_pass: ${{ secrets.OVPN_PASS }}
+          
