@@ -27,7 +27,7 @@ runs:
       - name: connect on VPN
         shell: bash
         run: | 
-         sudo openvpn --config cicd.ovpn --askpass vpn_pass.txt --auth-user-pass pass.txt 
+         sudo openvpn --config cicd.ovpn --askpass vpn_pass.txt --daemon
       - name: Waiting VPN connect
         shell: bash
         run: | 
