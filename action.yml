@@ -16,8 +16,8 @@ runs:
       - name: Installl OpenVPN
         shell: bash
         run: |
-          sudo apt update > /dev/null
-          sudo apt install openvpn -y > /dev/null
+          sudo apt-get update > /dev/null
+          sudo apt-get install openvpn -y > /dev/null
       - name: Config VPN
         shell: bash
         run: |
@@ -31,7 +31,7 @@ runs:
       - name: Waiting VPN connect
         shell: bash
         run: | 
-         sleep 5
+         sleep 10
       - name: Checking connection VPN
         shell: bash
         run: |
