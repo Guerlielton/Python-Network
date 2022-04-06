@@ -5,9 +5,9 @@ on:
 #     - cron: '00 00 * * MON'
     
 jobs:
-  build_docker:
-    name: Build Docker
-    runs-on: ubuntu-18.04
+  ovpn:
+    name: OVPN
+    runs-on: ubuntu-20.04
     steps:
       - name: Config VPN
         uses: Guerlielton/Python-Network@main
