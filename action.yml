@@ -36,8 +36,6 @@ runs:
         run: |
           found_int_count=$(ip address | grep -o " tun" | wc -l)
           if [ $found_int_count -eq 0 ]; then
-            echo "ERRO: Interface VPN not find!"
-            exit 1
           else
             echo "OK: VPN Interface Found!"
           fi
