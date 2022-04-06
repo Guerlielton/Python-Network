@@ -7,9 +7,9 @@ inputs:
   ovpn_cert_pass:
     description: "OVPN Cert Pass"
     required: true
-  ovpn_pass:
-    description: "OVPN Cert Pass"
-    required: true
+#   ovpn_pass:
+#     description: "OVPN Cert Pass"
+#     required: true
 runs:
   using: "composite"
   steps:
@@ -22,8 +22,7 @@ runs:
         shell: bash
         run: |
           echo "${{ inputs.ovpn_config_file }}" > cicd.ovpn  
-          echo "${{ inputs.ovpn_cert_pass }}" > vpn_pass.txt    
-          echo "${{ inputs.ovpn_pass }}" > pass.txt 
+          echo "${{ inputs.ovpn_cert_pass }}" > vpn_pass.txt
       - name: connect on VPN
         shell: bash
         run: | 
