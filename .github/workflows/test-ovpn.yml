@@ -14,5 +14,5 @@ jobs:
         with: 
           ovpn_config_file: ${{ secrets.OVPN_CONFIG_FILE }}
           ovpn_cert_pass: ${{ secrets.OVPN_CERT_PASS }}
-          ovpn_pass: ${{ secrets.OVPN_PASS }}
+
           
