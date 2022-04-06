@@ -1,4 +1,4 @@
-name: Test connect OVPN Mikrotik
+name: Test connect OVPN 
 on:
   workflow_dispatch:
 #   schedule:
@@ -14,5 +14,8 @@ jobs:
         with: 
           ovpn_config_file: ${{ secrets.OVPN_CONFIG_FILE }}
           ovpn_cert_pass: ${{ secrets.OVPN_CERT_PASS }}
+      - name: kill vpn
+        if: always()
+        run: sudo killall openvpn
 
           
