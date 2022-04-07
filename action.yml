@@ -7,9 +7,6 @@ inputs:
   ovpn_cert_pass:
     description: "OVPN Cert Pass"
     required: true
-#   ovpn_pass:
-#     description: "OVPN Cert Pass"
-#     required: true
 runs:
   using: "composite"
   steps:
