@@ -1,27 +1,27 @@
-# name: Notification Discord
-# on:
-#   workflow_run:
-#     workflows: ["Scan Vulnerabilities Trivy"]
-#     types:
-#       - completed
-# jobs:
-#   on-failure:
-#     runs-on: ubuntu-18.04
-#     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-#     steps:  
-#       - name: Send Message
-#         uses: appleboy/discord-action@master
-#         with:
-#           webhook_id: ${{ secrets.WEBHOOK_ID }}
-#           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-#           message: "Vulnerabilities found in Docker image"
-#   on-sucess:
-#     runs-on: ubuntu-18.04
-#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-#     steps:  
-#       - name: Send Message
-#         uses: appleboy/discord-action@master
-#         with:
-#           webhook_id: ${{ secrets.WEBHOOK_ID }}
-#           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-#           message: "Docker image Ok!, not found vulnerabilities"
+name: Notification Discord
+on:
+  workflow_run:
+    workflows: ["Scan Vulnerabilities Trivy"]
+    types:
+      - completed
+jobs:
+  on-failure:
+    runs-on: ubuntu-18.04
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:  
+      - name: Send Message
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          message: "Vulnerabilities found in Docker image"
+  on-sucess:
+    runs-on: ubuntu-18.04
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:  
+      - name: Send Message
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          message: "Docker image Ok!, not found vulnerabilities"
