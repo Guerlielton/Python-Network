@@ -1,6 +1,4 @@
-FROM python:3.8.12-alpine3.14.3
-# FROM python:3.8.12-alpine3.12
-# FROM python:3.8.7-alpine
+FROM # FROM python:3.9.13-alpine3.16
 
 WORKDIR /code
 
