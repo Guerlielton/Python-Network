@@ -24,3 +24,11 @@ jobs:
       timeout-minutes: 5
       env:
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    - name: Get Sonar Status and comment PR
+      if: ()
+      uses: campos-pay/Sonar-status-check@main
+      with:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_PROJETCKEY: python-app
+        GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
