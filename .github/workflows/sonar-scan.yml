@@ -15,8 +15,7 @@ jobs:
       with:
         projectBaseDir: .
         args: >
-          -Dsonar.projectKey=python-network
-          -Dsonar.python.coverage.reportPaths=coverage.xml
+          -Dsonar.projectKey=python-app
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
