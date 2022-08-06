@@ -25,7 +25,7 @@ jobs:
       env:
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Get Sonar Status and comment PR
-      if: ()
+      if: failure()
       uses: campos-pay/Sonar-status-check@main
       with:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
