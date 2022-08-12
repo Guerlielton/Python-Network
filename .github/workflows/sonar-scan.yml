@@ -22,9 +22,11 @@ jobs:
     - name: SonarQube Quality Gate check
       uses: campos-pay/sonarqube-quality-gate-action@master
       timeout-minutes: 5
+      with:
+        GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
       env:
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-       GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       
       #Test Sonar Script
 #     - name: Get Sonar Status and comment PR
 #       if: failure()
