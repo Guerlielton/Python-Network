@@ -27,25 +27,25 @@ jobs:
 #         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
       env:
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    - name: PR Comment
-      uses: actions/github-script@v2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          github.issues.createComment({
-            issue_number: ${{ github.event.number }},
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: `👋 Ola se voce esta vendo esse erro tem algo errado na sua PR verifique o SonarQube para mais detalhes :warning:
-            ${{ steps.sonar.outputs.quality-gate-status }}👋`
-          })
+#     - name: PR Comment
+#       uses: actions/github-script@v2
+#       with:
+#         github-token: ${{ secrets.GITHUB_TOKEN }}
+#         script: |
+#           github.issues.createComment({
+#             issue_number: ${{ github.event.number }},
+#             owner: context.repo.owner,
+#             repo: context.repo.repo,
+#             body: `👋 Ola se voce esta vendo esse erro tem algo errado na sua PR verifique o SonarQube para mais detalhes :warning:
+#             ${{ steps.sonar.outputs.quality-gate-status }}👋`
+#           })
           
       #Test Sonar Script
-#     - name: Get Sonar Status and comment PR
-#       if: success()
-#       uses: campos-pay/Sonar-status-check@main
-#       with:
-#         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#         SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
-#         SONAR_PROJETCKEY: python-app
-#         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Get Sonar Status and comment PR
+      if: success()
+      uses: campos-pay/Sonar-status-check@main
+      with:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_PROJETCKEY: python-app
+        GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
