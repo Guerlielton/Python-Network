@@ -37,7 +37,7 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: `👋 Ola se voce esta vendo esse erro tem algo errado na sua PR verifique o SonarQube para mais detalhes :warning:
-            ${{ steps.sonar.outputs.quality_status }}`
+            ${{ steps.sonar.outputs.quality-gate-status }}👋`
           })
           
       #Test Sonar Script
