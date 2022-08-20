@@ -28,6 +28,7 @@ jobs:
     # Optionally you can use the output from the Quality Gate in another step.
     # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
     - name: "Example show SonarQube Quality Gate Status value"
+      if: always()
       run: echo "The Quality Gate status is ${{ steps.sonar.outputs.quality-gate-status }}"
           
       #Test Sonar Script
