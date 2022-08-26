@@ -25,12 +25,6 @@ jobs:
       timeout-minutes: 5
       env:
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    # Optionally you can use the output from the Quality Gate in another step.
-    # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
-    - name: "Example show SonarQube Quality Gate Status value"
-      if: always()
-      run: echo "The Quality Gate status is ${{ steps.sonar.outputs.quality-gate-status }}"
-          
       #Test Sonar Script
 #     - name: Get Sonar Status and comment PR
 #       if: always()
@@ -41,6 +35,7 @@ jobs:
 #         SONAR_PROJETCKEY: python-app
 #         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Scan code
+      if: always()
       uses: vtex/action-sonarqube@main
       with:
           githubToken: ${{ secrets.GITHUB_TOKEN }} # https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
