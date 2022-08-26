@@ -38,6 +38,7 @@ jobs:
       if: always()
       uses: vtex/action-sonarqube@main
       with:
+          projectKey: python-app
           githubToken: ${{ secrets.GITHUB_TOKEN }} # https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           host: ${{ secrets.SONAR_HOST_URL }} # Variable set in the Github Secrets
           token: ${{ secrets.SONAR_TOKEN }} # Variable set in the Github Secrets
