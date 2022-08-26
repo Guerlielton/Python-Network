@@ -35,3 +35,16 @@ jobs:
         SONAR_PROJETCKEY: python-app
         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Set up Sonar Quality Gate
+      uses: dieuhd/sonar-quality-gate@v1
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GIT_URL: "https://api.github.com"
+          GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: python-app
+      with:
+          login:  ${{ secrets.SONAR_TOKEN }}
+          url: ${{ secrets.SONAR_HOST_URL }}
+          projectKey: python-app
