@@ -26,26 +26,12 @@ jobs:
       env:
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #Test Sonar Script
-#     - name: Get Sonar Status and comment PR
-#       if: always()
-#       uses: campos-pay/Sonar-status-check@main
-#       with:
-#         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#         SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
-#         SONAR_PROJETCKEY: python-app
-#         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Set up Sonar Quality Gate
+    - name: Get Sonar Status and comment PR
       if: always()
-      uses: dieuhd/sonar-quality-gate@v1
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          GIT_URL: "https://api.github.com"
-          GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: python-app
+      uses: campos-pay/Sonar-status-check@main
       with:
-          login:  ${{ secrets.SONAR_TOKEN }}
-          url: ${{ secrets.SONAR_HOST_URL }}
-          projectKey: python-app
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_PROJETCKEY: python-app
+        GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
