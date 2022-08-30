@@ -19,21 +19,21 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-    - name: SonarQube Quality Gate check
-      uses: campos-pay/sonarqube-quality-gate-action@master
-      id: sonar
-      timeout-minutes: 5
-      env:
-       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with:
-        GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #Test Sonar Script
-#     - name: Get Sonar Status and comment PR
-#       if: always()
-#       uses: campos-pay/Sonar-status-check@main
+#     - name: SonarQube Quality Gate check
+#       uses: campos-pay/sonarqube-quality-gate-action@master
+#       id: sonar
+#       timeout-minutes: 5
+#       env:
+#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #       with:
-#         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#         SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
-#         SONAR_PROJETCKEY: python-app
 #         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #Test Sonar Script
+    - name: Get Sonar Status and comment PR
+      if: always()
+      uses: campos-pay/Sonar-status-check@main
+      with:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_PROJETCKEY: python-app
+        GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
