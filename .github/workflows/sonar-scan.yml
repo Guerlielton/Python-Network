@@ -35,11 +35,11 @@ jobs:
 #       run: echo The Quality Gate status is ${{ steps.gate-check.outputs.quality-gate-status }}
       #Test Sonar Script
     - name: SonarQube Pull Request Comment
-      uses: campos-pay/sonarqube-pr-comment@v0.1.0
+      uses: campos-pay/sonarqube-pr-comment@main
       if: always()
       with:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         SONAR_PROJETCKEY: python-app
         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #     - name: "Example show SonarQube Quality Gate Status value"
