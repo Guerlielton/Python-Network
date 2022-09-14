@@ -21,7 +21,7 @@ jobs:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     - name: SonarQube Quality Gate check
       id: sonarqube-quality-gate-check
-      uses: sonarsource/sonarqube-quality-gate-action@master
+      uses: campos-pay/sonarqube-quality-gate-action@master
       # Force to fail step after specific time.
       timeout-minutes: 5
       env:
