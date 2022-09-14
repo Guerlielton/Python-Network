@@ -19,29 +19,29 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-    - name: SonarQube Quality Gate check
-      id: gate-check
-      uses: campos-pay/sonarqube-quality-gate-action@master
-      # Force to fail step after specific time.
-      timeout-minutes: 5
-      env:
-       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} #OPTIONAL
+#     - name: SonarQube Quality Gate check
+#       id: gate-check
+#       uses: campos-pay/sonarqube-quality-gate-action@master
+#       # Force to fail step after specific time.
+#       timeout-minutes: 5
+#       env:
+#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} #OPTIONAL
 
     # Optionally you can use the output from the Quality Gate in another step.
     # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
-    - name: "Example show SonarQube Quality Gate Status value"
-      if: always()
-      run: echo The Quality Gate status is ${{ steps.gate-check.outputs.quality-gate-status }}
-      #Test Sonar Script
-#     - name: Get Sonar Status and comment PR
+#     - name: "Example show SonarQube Quality Gate Status value"
 #       if: always()
-#       uses: campos-pay/Sonar-status-check@main
-#       with:
-#         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#         SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
-#         SONAR_PROJETCKEY: python-app
-#         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       run: echo The Quality Gate status is ${{ steps.gate-check.outputs.quality-gate-status }}
+      #Test Sonar Script
+    - name: SonarQube Pull Request Comment
+      uses: campos-pay/sonarqube-pr-comment@v0.1.0
+      if: always()
+      with:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_PROJETCKEY: python-app
+        GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #     - name: "Example show SonarQube Quality Gate Status value"
 #       if: always()
 #       run: echo The Quality Gate status is ${{ steps.check.outputs.quality_check }}
