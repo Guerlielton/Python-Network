@@ -7,7 +7,7 @@ on:
 jobs:
   build_docker:
     name: Build Docker
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
           tags: python-network:latest
           outputs: type=docker,dest=/tmp/python-network.tar
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: python-network
           path: /tmp/python-network.tar
@@ -40,13 +40,13 @@ jobs:
           message: "Docker Build Failure!"
   scan:
     name: Scan Image Trivy
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     needs: build_docker
     steps:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Download Artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: python-network
           path: /tmp
