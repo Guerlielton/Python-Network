@@ -41,6 +41,8 @@ def vyos_policy():
 if __name__ == '__main__':
     vyos_policy()
     
+
+    
     # Using F string and increment numbers in Cisco router-map and Huawei router-policy init in 100 increments 10 
 def vyos_policy():
     arq = open('VyOS-Policy.txt','w')
