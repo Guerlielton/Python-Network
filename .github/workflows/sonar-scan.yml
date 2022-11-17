@@ -23,7 +23,7 @@ jobs:
 
       #Test Sonar Script
     - name: SonarQube Pull Request Comment
-      uses: campos-pay/sonarqube-pr-comment@main
+      uses: campos-pay/sonarqube-pr-comment@dev
       if: always()
       with:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
