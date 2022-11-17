@@ -28,5 +28,5 @@ jobs:
       with:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        SONAR_PROJETCKEY: python-app
+        SONAR_PROJECTKEY: python-app
         GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
