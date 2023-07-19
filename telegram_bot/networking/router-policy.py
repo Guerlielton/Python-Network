@@ -4,11 +4,17 @@ from juniper import routepolicy
 from huawei import huawei_policy
 from vyos import vyos_policy
 
+options = {
+    1: routepolicy,
+    2: route_xe,
+    3: route_xr,
+    4: huawei_policy,
+    5: vyos_policy
+}
 
-opcao = -1
-while opcao != 0:
+while True:
     print()
-    print('Choose the policy to be configured: ')
+    print('Choose the policy to be configured:')
     print()
     print('1 - Juniper')
     print('2 - Cisco-XE')
@@ -17,21 +23,17 @@ while opcao != 0:
     print('5 - VyOS')
     print('0 - Exit')
     print()
-    opcao = int(input('Enter the option number: '))
-    if (opcao == 1):
-        #Call Module Juniper
-        routepolicy()
-    elif (opcao == 2):
-        #Call Module Cisco XE
-        route_xe()
-    elif (opcao == 3):
-        #Call Module Cisco XR
-        route_xr()
-    elif (opcao == 4):
-        #Call Module Huawei
-        huawei_policy()
-    elif (opcao == 5):
-        #Call Module VyOs
-        vyos_policy()
- #cisco #juniper #huawei #networking #python #automationanywhere #devnet
+    
+    try:
+        opcao = int(input('Enter the option number: '))
+        if opcao == 0:
+            break
+        elif opcao in options:
+            selected_function = options[opcao]
+            selected_function()
+        else:
+            print('Invalid option. Please choose a valid option.')
+    except ValueError:
+        print('Invalid input. Please enter a valid number.')
 
+print('Exiting...')
