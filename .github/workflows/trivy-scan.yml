@@ -79,6 +79,6 @@ jobs:
           message: "Vulnerabilities found in Docker image"
       - name: Delete Artifact
         if: success() || failure()
-        uses: geekyeggo/delete-artifact@v1
+        uses: geekyeggo/delete-artifact@v2
         with:
            name: python-network
