@@ -16,7 +16,7 @@ jobs:
       with:
         projectBaseDir: .
         args: >
-          -Dsonar.projectKey= ${{ github.event.repository.name }}
+          -Dsonar.projectKey=${{ github.event.repository.name }}
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
