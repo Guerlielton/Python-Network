@@ -9,26 +9,25 @@ jobs:
     - uses: actions/checkout@v4
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting 
-        #
         fetch-depth: 0
-    # - name: SonarQube Scan
-    #   uses: sonarsource/sonarqube-scan-action@master
-    #   with:
-    #     projectBaseDir: .
-    #     args: >
-    #       -Dsonar.projectKey=${{ github.event.repository.name }}
-    #   env:
-    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      with:
+        projectBaseDir: .
+        args: >
+          -Dsonar.projectKey=${{ github.event.repository.name }}
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       #Test Sonar Script
     - name: SonarQube Pull Request Comment
       uses: campos-pay/sonarqube-pr-comment@dev
       if: always()
       with:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        SONAR_PROJECTKEY: ${{ github.event.repository.name }}
-        GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        sonar_token: ${{ secrets.SONAR_TOKEN }}
+        sonar_host_url: ${{ secrets.SONAR_HOST_URL }}
+        sonar_projectkey: ${{ github.event.repository.name }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         repo_name: ${{ github.repository }}
         pr_number: ${{ github.event.pull_request.number }}
