@@ -19,8 +19,10 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-
-      #Test Sonar Script
+        
+    - name: Esperando resultados do SonarQube Quality Gate
+      run: sleep 15
+      
     - name: SonarQube Pull Request Comment
       uses: campos-pay/sonarqube-pr-comment@dev
       if: always()
